@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form th:action="@{/register/save}" action="/register/save" method="post" th:object="${user}">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username" th:field="*{username}">
+
+        <label for="display_name">Display_Name</label>
+        <input type="text" name="display_name" id="display_name" placeholder="Display_name" th:field="*{displayName}">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" th:field="*{email}">
+        
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password" th:field="*{password}">
+
+        <label for="passwordConfirm">Confirmation</label>
+        <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Password confirmation" th:field="*{passwordConfirm}">
+
+        <input type="submit" value="Register">
+        <a th:href="@{/login}" href="/login">Already have an account? Login here !</a>
+    </form>
+</body>
+</html>
