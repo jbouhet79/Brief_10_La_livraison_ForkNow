@@ -1,4 +1,6 @@
-/*package fr.simplon.forknow.model;
+/* MODELE POUR LA CREATION DU COMPTEUR DANS LE PANIER - A FAIRE
+
+package fr.simplon.forknow.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

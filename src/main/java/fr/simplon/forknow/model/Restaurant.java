@@ -15,7 +15,7 @@ import org.springframework.lang.NonNull;
 @Entity
 @Builder
 @Table(name = "restaurants")
-public class Restaurant {
+public class Restaurant { 
 
     @Id
     @GeneratedValue
@@ -26,5 +26,7 @@ public class Restaurant {
 
     @NonNull
     private String speciality;
+
+    private String image;
 
 }

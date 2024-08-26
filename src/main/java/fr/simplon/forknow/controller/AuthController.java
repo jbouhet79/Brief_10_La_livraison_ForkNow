@@ -38,7 +38,7 @@ public class AuthController {
         this.countService = countService;*/
     }
 
-    @GetMapping("/")
+    @GetMapping("/") // Page d'accueil
     public String home(Model model, Authentication authentication) {
         Optional<User> user = userService.from(authentication);
         if(user.isPresent()){
@@ -47,47 +47,43 @@ public class AuthController {
         return "forknow-index";
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/admin") // Page pour la gestion des comptes utilisateurs par l'administrateur (à créer)
     public String admin() {
         return "admin";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/register") // Lien vers la page de création de compte
     public String register(Model model) {
         RegisterDto user = new RegisterDto();
         model.addAttribute("user", user);
         return "forknow-register";
     }
 
-    @GetMapping("/register-restaurant")
+    @GetMapping("/register-restaurant") // Lien vers la page de création d'un restaurant
     public String registerRestaurant(Model model) {
        RegisterRestaurantDto restaurant = new RegisterRestaurantDto();
        model.addAttribute("restaurant", restaurant);
         return "forknow-register-restaurant";
     }
 
-    @GetMapping("/restaurants")
+    @GetMapping("/restaurants") // Lien vers la page où sont listés les restaurants
     public String restaurants(Model model, Authentication authentication) {
-        Optional<User> user = userService.from(authentication);
-        if(user.isPresent()){
-            model.addAttribute("currentUser", user.get());
-        }
         List<Restaurant> restaurants = restaurantService.findAllRestaurants();
         model.addAttribute("restaurants", restaurants);
         return "forknow-restaurants-list";
     }
 
-    @GetMapping("/restaurant1")
+    @GetMapping("/restaurant1") // Lien vers la page associé au Restaurant 1
     public String restaurant1(Model model, Authentication authentication) {
-        Optional<User> user = userService.from(authentication);
-        if(user.isPresent()){
-            model.addAttribute("currentUser", user.get());
-//            model.addAttribute("countCart", count);
-        }
+//         Optional<User> user = userService.from(authentication);
+//         if(user.isPresent()){
+//             model.addAttribute("currentUser", user.get());
+// //            model.addAttribute("countCart", count);
+//         }
         return "forknow-restaurant-TastyBites";
     }
 
-    @PostMapping("/register/save")
+    @PostMapping("/register/save") // Sauvegarde d'un nouveau compte
     public String registerUser(@Valid @ModelAttribute RegisterDto userMapping) {
         if(!userMapping.getPassword().equals(userMapping.getPasswordConfirm())){
             return "redirect:/register?error";
@@ -96,19 +92,19 @@ public class AuthController {
         return "redirect:/login?success=userRegistered";
     }
 
-    @PostMapping("/register-restaurant/save")
+    @PostMapping("/register-restaurant/save") // Sauvegarde d'un nouveau restaurant
     public String registerRestaurant(@Valid @ModelAttribute RegisterRestaurantDto restaurantMapping) {
         restaurantService.saveRestaurant(restaurantMapping);
         return "redirect:/restaurants";
     }
 
-    @PostMapping("/restaurant1/order")
+    @PostMapping("/restaurant1/order") // Ajout d'un menu au panier (incrementation de la variable count) - A finir
     public String incrementCart(Model model) {
 //        model.addAttribute("countCart", count);
         return "redirect:/forknow-restaurant-TastyBites";
     };
 
-/*    @PostMapping("/cart/save")
+/*    @PostMapping("/cart/save") // Création du contenu d'un panier (Cart) - A faire
     public String registerCart(@Valid @ModelAttribute CartDto cartMapping) {
         cartService.saveCart(cartMapping);
         return "redirect:/login?success=cartRegistered";

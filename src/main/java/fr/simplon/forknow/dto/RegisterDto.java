@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterDto {
+public class RegisterDto { // Infos demandées lors de la création d'un compte
     @NotEmpty(message = "Username must not be empty")
     private String username;
 

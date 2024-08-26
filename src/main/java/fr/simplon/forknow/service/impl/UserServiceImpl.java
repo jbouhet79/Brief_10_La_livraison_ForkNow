@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @Override
+    @Override // Gère la création du user dans la BDD
     public void saveUser(UserDto user) {
         User userEntity = User.builder()
             .username(user.getUsername())
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userEntity);
     }
     
-    @Override
+    @Override // Gère la création du user dans la BDD
     public void saveUser(RegisterDto user) {
         User userEntity = User.builder()
             .username(user.getUsername())
@@ -49,7 +49,6 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userEntity);
     }
 
-    
 
 /*    @Override
     public void saveCart(CartDto cart) {

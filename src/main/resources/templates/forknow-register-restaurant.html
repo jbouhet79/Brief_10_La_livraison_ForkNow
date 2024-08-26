@@ -4,17 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register-Restaurant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FD9B3A;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #FD9B3A;
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFF;
+        }
+
+        .back-button {
+            background-color: #333;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 300px;
+            font-size: 20px;
+        }
+
+        .hero input {
+            font-size: 20px;
+        }
+
+        .champ {
+            padding-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <form th:action="@{/register-restaurant/save}" action="/register-restaurant/save" method="post" th:object="${restaurant}">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" placeholder="Name" th:field="*{name}">
+    <div class="container">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img th:src="@{../images/ForkNow_logo.png}" src="../static/images/ForkNow_logo.png" alt="Logo">
+    
+                    </div>
+                    <a th:href="@{/}" href="forknow-index.html" class="back-button">Back to Home</a>
+                </div>
+            </div>
+        </header>
+        <section class="hero">
+            <form th:action="@{/register-restaurant/save}" action="/register-restaurant/save" method="post" th:object="${restaurant}">
+                <div class="champ">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Name" th:field="*{name}">
+                </div>
 
-        <label for="speciality">Speciality</label>
-        <input type="text" name="speciality" id="speciality" placeholder="Speciality" th:field="*{speciality}">
+                <div class="champ">
+                    <label for="speciality">Speciality</label>
+                    <input type="text" name="speciality" id="speciality" placeholder="Speciality" th:field="*{speciality}">
+                </div>
 
-        <input type="submit" value="Register">
-<!--        <a th:href="@{/restaurant-list}" href="/restaurant-list">Already have a resta? Login here !</a>-->
-    </form>
+                <div class="champ">
+                    <label for="image">Image</label>
+                    <input type="text" name="image" id="image" placeholder="Image" th:field="*{image}">
+                </div>
+
+                <div class="champ">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </section>
+    </div>
 </body>
 </html>

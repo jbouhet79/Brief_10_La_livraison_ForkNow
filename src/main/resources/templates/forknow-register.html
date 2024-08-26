@@ -4,26 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FD9B3A;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #FD9B3A;
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFF;
+        }
+
+        .back-button {
+            background-color: #333;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 300px;
+            font-size: 20px;
+        }
+
+        .hero input {
+            font-size: 20px;
+        }
+
+        .champ {
+            padding-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <form th:action="@{/register/save}" action="/register/save" method="post" th:object="${user}">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="Username" th:field="*{username}">
+    <div class="container">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <img th:src="@{../images/ForkNow_logo.png}" src="../static/images/ForkNow_logo.png" alt="Logo">
+    
+                    </div>
+                    <a th:href="@{/}" href="forknow-index.html" class="back-button">Back to Home</a>
+                </div>
+            </div>
+        </header>
+        <section class="hero">
 
-        <label for="display_name">Display_Name</label>
-        <input type="text" name="display_name" id="display_name" placeholder="Display_name" th:field="*{displayName}">
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Email" th:field="*{email}">
+            <form  th:action="@{/register/save}" action="/register/save" method="post" th:object="${user}">
+                <div class="champ">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Username" th:field="*{username}">
+                </div>
+    
+                <div class="champ">
+                    <label for="display_name">Pseudo</label>
+                    <input type="text" name="display_name" id="display_name" placeholder="Pseudo" th:field="*{displayName}">
+                </div>
         
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Password" th:field="*{password}">
-
-        <label for="passwordConfirm">Confirmation</label>
-        <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Password confirmation" th:field="*{passwordConfirm}">
-
-        <input type="submit" value="Register">
-        <a th:href="@{/login}" href="/login">Already have an account? Login here !</a>
-    </form>
+                <div class="champ">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email" th:field="*{email}">
+                </div>
+                    
+                <div class="champ">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password" th:field="*{password}">
+                </div>
+    
+                <div class="champ">
+                    <label for="passwordConfirm">Confirmation</label>
+                    <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Password confirmation" th:field="*{passwordConfirm}">
+                </div>
+    
+                <div class="champ">
+                    <input type="submit" value="Register">
+                    <a th:href="@{/login}" href="/login">Already have an account? Login here !</a>
+                </div>
+            </form>
+        </section>
+    </div>
 </body>
 </html>

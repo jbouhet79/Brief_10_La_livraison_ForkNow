@@ -29,24 +29,8 @@ public class SpringSecurity {
         return new BCryptPasswordEncoder();
     }
 
-    // @Bean
-    // public InMemoryUserDetailsManager userDetailsManager() {
-    //     return new InMemoryUserDetailsManager(
-    //             User.builder()
-    //                 .username("user")
-    //                 .password(passwordEncoder().encode("pass"))
-    //                 .roles("USER")
-    //                 .build(),
-    //             User.builder()
-    //                 .username("admin")
-    //                 .password(passwordEncoder().encode("pass"))
-    //                 .roles("ADMIN")
-    //                 .build()
-    //     );
-    // }
-
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception { // Gestion autorisations d'accès
         return http.authorizeHttpRequests((auth) -> {
             auth
                     .requestMatchers("/").permitAll()

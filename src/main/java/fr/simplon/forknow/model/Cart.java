@@ -1,4 +1,6 @@
-/*
+/* MODELE POUR LA CREATION DU PANIER - A FAIRE
+
+
 package fr.simplon.forknow.model;
 
 import org.springframework.lang.NonNull;

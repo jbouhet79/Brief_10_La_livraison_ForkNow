@@ -150,7 +150,7 @@
 
         <div class="restaurant-grid">
             <div class="restaurant-card">
-                <img src="/api/placeholder/300/200" alt="Restaurant 1" class="restaurant-image">
+                <img th:src="@{../images/pexels-photo-750073_Tasty.webp}" src="../static/images/pexels-photo-750073_Tasty.webp" alt="Restaurant 1" class="restaurant-image">
                 <div class="restaurant-info">
                     <h2 class="restaurant-name">Tasty Bites</h2>
                     <p class="restaurant-cuisine">American, Burgers</p>
@@ -158,23 +158,22 @@
                         <span class="star">★★★★☆</span>
                         <span>4.5 (200+ reviews)</span>
                     </div>
-                    <a th:href="@{/restaurant1}" href="/index" class="order-button">Order Now</a>
+                    <a th:href="@{/restaurant1}" href="/index" class="order-button">Select</a>
                 </div>
             </div>
 
-            <div class="restaurant-info" th:each="restaurant: ${restaurants}">
-                <div class="restaurant-card" >
-                <img src="/api/placeholder/300/200" alt="Restaurant 2" class="restaurant-image">
+            <div class="restaurant-card" th:each="restaurant, status: ${restaurants}">
+                <img th:src="@{${restaurant.image}}" th:alt="|Restaurant ${status.index+2}|" alt="Restaurant 2" class="restaurant-image">
+                <div class="restaurant-info" >
                     <h2  class="restaurant-name" th:text="${restaurant.name}">Name</h2>
                     <p class="restaurant-cuisine" th:text="${restaurant.speciality}">Speciality</p>
                     <div class="restaurant-rating">
                         <span class="star">★★★★★</span>
                         <span>4.8 (150+ reviews)</span>
                     </div>
-                    <a th:href="@{/}" href="/index" class="order-button">Order Now</a>
+                    <a th:href="@{/}" href="/index" class="order-button">Select</a>
                 </div>
             </div>
-
         </div>
     </div>
 </body>

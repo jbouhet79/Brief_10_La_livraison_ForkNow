@@ -30,13 +30,14 @@ public class RestaurantServiceImpl implements RestaurantService{
         Restaurant restaurantEntity = Restaurant.builder()
             .name(restaurant.getName())
             .speciality(restaurant.getSpeciality())
+            .image(restaurant.getImage())
             .build();
         restaurantRepository.save(restaurantEntity);
     }
 
     @Override
     public List<Restaurant> findAllRestaurants() {
-        return restaurantRepository.findAllRestaurants();
+        return restaurantRepository.findAll();
     }
 
     
