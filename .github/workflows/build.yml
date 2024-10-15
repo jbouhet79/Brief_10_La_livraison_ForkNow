@@ -14,7 +14,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Checkout
-        uses: actions/checkoit@v4
+        uses: actions/checkout@v4
       - name: Build with Gradle
         run: ./gradlew bootjar
       - run: ls -lis build/libs
