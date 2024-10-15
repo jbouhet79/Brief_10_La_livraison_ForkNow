@@ -17,4 +17,4 @@ jobs:
         uses: actions/checkout@v4
       - name: Build with Gradle
         run: ./gradlew bootjar
-      - run: ls -lis build/libs
+      - run: ls -lia build/libs
