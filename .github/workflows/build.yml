@@ -16,5 +16,5 @@ jobs:
       - name: Checkout
         uses: actions/checkoit@v4
       - name: Build with Gradle
-        run: gradle bootjar
+        run: ./gradlew bootjar
       - run: ls -lis build/libs
