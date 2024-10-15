@@ -3,9 +3,9 @@ on:
 
 jobs:
   get-version:
-    uses: shiipou/github-actions/.github/workflows/get-version.yml@master
+    uses: shiipou/github-actions/.github/workflows/get-version.yml@main
     with:
-      release-branches: '^(main)$'
+      release-branches: '^(master)$'
   
   build:
     name: Spring build
